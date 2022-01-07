@@ -61,32 +61,40 @@ $ npm run test:cov
 ## 挙動確認
 
 #### 登録
-curl -XPOST -H "Content-Type:application/json" localhost:3000/users -d '{"name":"サンプル太郎"}'
+curl -XPOST -H "Content-Type:application/json" localhost:3000/users -d '{"name":"ユーザー太郎"}'
+
 `{"message":"アカウントの登録に成功しました"}`
 
-curl -XPOST -H "Content-Type:application/json" localhost:3000/users -d '{"name":"サンプル二郎"}'
+curl -XPOST -H "Content-Type:application/json" localhost:3000/users -d '{"name":"ユーザー二郎"}'
+
 `{"message":"アカウントの登録に成功しました"}`
 
 #### 一覧
 curl -H "Content-Type:application/json" localhost:3000/users
+
 `[{"name":"ユーザー太郎","id":1},{"name":"ユーザー郎","id":2}]`
 
 #### 詳細
 curl -H "Content-Type:application/json" localhost:3000/users/1
+
 `{"name":"ユーザー太郎","id":1}`
 
 #### 更新
 curl -XPATCH -H "Content-Type:application/json" localhost:3000/users/2 -d '{"name":"更新二郎"}'
+
 `{"message":"アカウント ID「2」の更新に成功しました。"}`
 
-curl -H "Content-Type:application/json" localhost:3000/users  
+curl -H "Content-Type:application/json" localhost:3000/users
+
 `[{"name":"ユーザー太郎","id":1},{"name":"更新二郎","id":2}]`
 
 #### 削除
-curl -XDELETE -H "Content-Type:application/json" localhost:3000/users/2  
+curl -XDELETE -H "Content-Type:application/json" localhost:3000/users/2
+
 `{"message":"アカウント ID「2」の削除に成功しました。"}`
 
-curl -H "Content-Type:application/json" localhost:3000/users  
+curl -H "Content-Type:application/json" localhost:3000/users
+
 `[{"name":"ユーザー太郎","id":1}]`
 
 ## Support
